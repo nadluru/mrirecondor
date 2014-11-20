@@ -35,12 +35,12 @@ vdsName = "VIPR_IR_256_100_1000.grad"
 dcmName = "I001.dcm"
 suffix="November142014"
 subName = "MPnRAGE_chtc_"
-init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR/"
+init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR_C/"
 
 submitFile=open("%s%s.submit" % (subName,suffix),"w")
 submitFile.write("Universe=vanilla\n")
 submitFile.write("getenv=True\n")
-submitFile.write("Executable=recon_basic.sh\n")
+submitFile.write("Executable=recon_basic_R1.sh\n")
 
 submitFile.write("PeriodicRemove =  (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5)\n")
 submitFile.write("Requirements = ( OpSys == \"LINUX\" && Arch == \"X86_64\" )\n")

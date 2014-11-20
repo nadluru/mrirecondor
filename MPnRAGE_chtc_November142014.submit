@@ -1,6 +1,6 @@
 Universe=vanilla
 getenv=True
-Executable=recon_basic.sh
+Executable=recon_basic_R1.sh
 PeriodicRemove =  (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5)
 Requirements = ( OpSys == "LINUX" && Arch == "X86_64" )
 request_cpus = 1
@@ -12,7 +12,7 @@ requirements = (TARGET.Name =!= LastMatchName1)
 should_transfer_files = yes
 when_to_transfer_output = ON_EXIT
 
-initialdir=/scratch/kecskemeti/MPnRAGE_CONDOR/
+initialdir=/scratch/kecskemeti/MPnRAGE_CONDOR_C/
 Log=test.log
 Output=test.out
 Error=test.err
