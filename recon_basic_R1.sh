@@ -19,7 +19,7 @@ ${cmdName} -f ${PFileName} -condor_htc -viability -ir_prep_head -update_rate 1 -
 mkdir DICOMS_SMAP_FRAME
 mv *.sdcopen DICOMS_SMAP_FRAME/
 
-${cmdName} -f ${PFileName} -condor_htc -viability -ir_prep_head -update_rate 1 -b0_eddy_correct 1 -export_complex_images -motion_detection_xyz -wdth_low_prep 525 -wdth_high_prep 525 -prep_phase 0 -mpnrage_vfa -pils -external_smaps -alpha_1 4.0 -alpha_2 6.0 -mag_ss 2 -threads 1
+${cmdName} -f ${PFileName} -condor_htc -viability -ir_prep_head -update_rate 1 -b0_eddy_correct 1 -export_complex_images -motion_detection_xyz -wdth_low_prep 525 -wdth_high_prep 525 -prep_phase 0 -mpnrage_vfa -pils -external_smaps -alpha_1 4.0 -alpha_2 6.0 -mag_ss 2 -threads 1 -rend 1
 
 mkdir DICOMS_COMP
 mv *.sdcopen DICOMS_COMP/

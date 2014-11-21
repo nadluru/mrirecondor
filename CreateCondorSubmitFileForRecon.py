@@ -28,14 +28,14 @@ import subprocess as sp
 import glob
 from os.path import isfile,isdir,join
 
-PFileName = "P14848.7"
+PFileName = "P37888.7"
 outputFolderName = "DatFileFolder"
 cmdName="recon24_102914"
 vdsName = "VIPR_IR_256_100_1000.grad"
 dcmName = "I001.dcm"
 suffix="November142014"
-subName = "MPnRAGE_chtc_"
-init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR_C/"
+subName = "MPnRAGE_chtc_D"
+init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR_D/"
 
 submitFile=open("%s%s.submit" % (subName,suffix),"w")
 submitFile.write("Universe=vanilla\n")
@@ -54,7 +54,7 @@ submitFile.write("requirements = (TARGET.Name =!= LastMatchName1)\n")
 submitFile.write("should_transfer_files = yes\n")
 submitFile.write("when_to_transfer_output = ON_EXIT\n\n")
 
-PFile = "/study/iggrant/MPnRAGE_MOTION_CORRECTION/323637/%s" % (PFileName)
+PFile = "/study/core-mri/raw-data/nii_test/pfiles/00004.mpnrage_vfa_256x1/%s" % (PFileName)
 cmdFile = "/home/kecskemeti/MRIRecondor/mrirecondor/%s" % (cmdName)
 dcmFile = "/home/kecskemeti/MRIRecondor/mrirecondor/%s" % (dcmName)
 vdsFile = "/home/kecskemeti/%s" % (vdsName)
