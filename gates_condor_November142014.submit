@@ -1,0 +1,158 @@
+Universe=vanilla
+getenv=True
+Executable=recon_frames_gates.sh
+PeriodicRemove =  (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5)
+Requirements = ( OpSys == "LINUX" && Arch == "X86_64" )
+request_cpus = 1
+request_memory = 8000
+request_disk = 1000000
+periodic_release = (JobStatus == 5) && ((CurrentTime - EnteredCurrentStatus) > 30) && (NumSystemHolds < 10)
+match_list_length = 5
+requirements = (TARGET.Name =!= LastMatchName1)
+should_transfer_files = yes
+when_to_transfer_output = ON_EXIT
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/1_1
+transfer_input_files = P.1496.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1496.1 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/1_1
+transfer_input_files = P.1496.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1496.1 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/1_2
+transfer_input_files = P.1496.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1496.2 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/1_2
+transfer_input_files = P.1496.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1496.2 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/2_1
+transfer_input_files = P.1503.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1503.1 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/2_1
+transfer_input_files = P.1503.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1503.1 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/2_2
+transfer_input_files = P.1503.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1503.2 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/2_2
+transfer_input_files = P.1503.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1503.2 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/3_1
+transfer_input_files = P.1525.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1525.1 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/3_1
+transfer_input_files = P.1525.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1525.1 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/3_2
+transfer_input_files = P.1525.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1525.2 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/3_2
+transfer_input_files = P.1525.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1525.2 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/4_1
+transfer_input_files = P.1532.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1532.1 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/4_1
+transfer_input_files = P.1532.1, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1532.1 1 2 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/4_2
+transfer_input_files = P.1532.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test0.log
+Output=test0.out
+Error=test0.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1532.2 0 1 DatFileFolder
+Queue
+
+initialdir=/study/gates/VIPR_IR_T1MAPS_SRK/CHTC/4_2
+transfer_input_files = P.1532.2, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+Log=test1.log
+Output=test1.out
+Error=test1.err
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P.1532.2 1 2 DatFileFolder
+Queue
+

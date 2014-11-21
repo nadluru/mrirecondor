@@ -63,7 +63,6 @@ vdsFile = "/home/kecskemeti/%s" % (vdsName)
 for sub in range (0, 4, 1):
 	for time_pt in range (0, 2, 1):
 		PFileName = "P.%d.%d" % (IDs[sub],time_pt+1)
-		PFile = "%s" % (PFileName)
 		for frameIdx in range(0, 2, 1):
 			submitFile.write("initialdir=%s%d_%d\n" % (init_dir,sub+1,time_pt+1))
 			if not os.path.exists("%s" % (init_dir)):
