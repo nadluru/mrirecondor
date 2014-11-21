@@ -34,7 +34,7 @@ cmdName="recon24_102914"
 vdsName = "VIPR_IR_256_100_1000.grad"
 dcmName = "I001.dcm"
 suffix="November142014"
-subName = "MPnRAGE_chtc_D"
+subName = "MPnRAGE_chtc_"
 init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR_D/"
 
 submitFile=open("%s%s.submit" % (subName,suffix),"w")

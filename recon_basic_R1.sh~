@@ -15,7 +15,7 @@ export HOME=/home/`whoami`
 export PATH=$PWD/${TargetPath}:$PATH
 
 rm -f *.dat
-${cmdName} -f ${PFileName} -condor_htc -viability -ir_prep_head -update_rate 1 -b0_eddy_correct 1 -export_complex_images -motion_detection_xyz -wdth_low_prep 525 -wdth_high_prep 525 -prep_phase 0 -mpnrage_vfa -pils -export_smaps -fr_start 0 -dat_files -mpnrage_vfa_ss -max_tornado -causal -pils_self -smap_res 8.0 -threads 1
+${cmdName} -f ${PFileName} -condor_htc -viability -ir_prep_head -update_rate 1 -b0_eddy_correct 1 -export_complex_images -motion_detection_xyz -wdth_low_prep 525 -wdth_high_prep 525 -prep_phase 0 -mpnrage_vfa -pils -export_smaps -fr_start 0 -dat_files -mpnrage_vfa_ss -max_tornado -causal -pils_self -smap_res 8.0 -threads 1 -rend 1
 mkdir DICOMS_SMAP_FRAME
 mv *.sdcopen DICOMS_SMAP_FRAME/
 
@@ -32,9 +32,18 @@ mkdir ${outputFolderName}
 mv DICOMS_SMAP_FRAME ./${outputFolderName}
 mv DICOMS_COMP ./${outputFolderName}
 mv SMAPS ./${outputFolderName}
+mv *.dat ./${outputFolderName}
 
 tar -zcvf ${outputFolderName}.tar.gz ${outputFolderName}
 
 echo Removing VIPRIR binaries folder and dat files
 rm -rf $PWD/${TargetPath}
 rm -f *.dat
+
+
+
+
+
+
+
+

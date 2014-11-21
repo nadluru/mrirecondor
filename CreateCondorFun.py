@@ -28,19 +28,18 @@ import subprocess as sp
 import glob
 from os.path import isfile,isdir,join
 
-PFileName = "P37888.7"
+PFileName = "P14848.7"
 outputFolderName = "DatFileFolder"
 cmdName="recon24_102914"
 vdsName = "VIPR_IR_256_100_1000.grad"
 dcmName = "I001.dcm"
-suffix="November142014"
-subName = "MPnRAGE_chtc_D"
-init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR_D/"
+suffix="_20141119"
+init_dir = "/scratch/kecskemeti/MPnRAGE_CONDOR/"
 
-submitFile=open("%s%s.submit" % (subName,suffix),"w")
+submitFile=open("condor_fun.submit","w")
 submitFile.write("Universe=vanilla\n")
 submitFile.write("getenv=True\n")
-submitFile.write("Executable=recon_basic_R1.sh\n")
+submitFile.write("Executable=recon_fun.sh\n")
 
 submitFile.write("PeriodicRemove =  (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5)\n")
 submitFile.write("Requirements = ( OpSys == \"LINUX\" && Arch == \"X86_64\" )\n")
@@ -54,24 +53,23 @@ submitFile.write("requirements = (TARGET.Name =!= LastMatchName1)\n")
 submitFile.write("should_transfer_files = yes\n")
 submitFile.write("when_to_transfer_output = ON_EXIT\n\n")
 
-PFile = "/study/core-mri/raw-data/nii_test/pfiles/00004.mpnrage_vfa_256x1/%s" % (PFileName)
+PFile = "/study/iggrant/MPnRAGE_MOTION_CORRECTION/323637/%s" % (PFileName)
 cmdFile = "/home/kecskemeti/MRIRecondor/mrirecondor/%s" % (cmdName)
 dcmFile = "/home/kecskemeti/MRIRecondor/mrirecondor/%s" % (dcmName)
-vdsFile = "/home/kecskemeti/%s" % (vdsName)
+vdsFile = "/home/kecskemeti/MRIRecondor/mrirecondor/%s" % (vdsName)
 
 # Per chunk.
-submitFile.write("initialdir=%s\n" % (init_dir))
-if not os.path.exists("%s" % (init_dir)):
-	os.makedirs("%s" % (init_dir));
+submitFile.write("initialdir=/scratch/kecskemeti/VIPRIRReconTest\n")
+if not os.path.exists("/scratch/kecskemeti/VIPRIRReconTest"):
+	os.makedirs("/scratch/kecskemeti/VIPRIRReconTest");
 submitFile.write("Log=test.log\n")
 submitFile.write("Output=test.out\n")
 submitFile.write("Error=test.err\n")
 
-submitFile.write("transfer_input_files = %s, %s, %s, %s\n" % (PFile, cmdFile, dcmFile, vdsFile))
+submitFile.write("transfer_input_files = %s, %s, %s\n" % (cmdFile, dcmFile, vdsFile))
 submitFile.write("transfer_output_files = %s\n" % (outputFolderName))
-submitFile.write("Arguments=%s %s %s\n" % (cmdName, PFileName, outputFolderName))
+submitFile.write("Arguments=%s\n" % (outputFolderName))
 #submitFile.write("+WantGlidein=true\n")
 submitFile.write("Queue\n\n")
 
 submitFile.close()
-os.chmod("%s%s.submit" % (subName,suffix), 0755)

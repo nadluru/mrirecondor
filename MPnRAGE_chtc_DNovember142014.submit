@@ -1,0 +1,23 @@
+Universe=vanilla
+getenv=True
+Executable=recon_basic_R1.sh
+PeriodicRemove =  (((CurrentTime - EnteredCurrentStatus) > (2*24*3600)) && JobStatus == 5)
+Requirements = ( OpSys == "LINUX" && Arch == "X86_64" )
+request_cpus = 1
+request_memory = 8000
+request_disk = 1000000
+periodic_release = (JobStatus == 5) && ((CurrentTime - EnteredCurrentStatus) > 30) && (NumSystemHolds < 10)
+match_list_length = 5
+requirements = (TARGET.Name =!= LastMatchName1)
+should_transfer_files = yes
+when_to_transfer_output = ON_EXIT
+
+initialdir=/scratch/kecskemeti/MPnRAGE_CONDOR_D/
+Log=test.log
+Output=test.out
+Error=test.err
+transfer_input_files = /study/core-mri/raw-data/nii_test/pfiles/00004.mpnrage_vfa_256x1/P37888.7, /home/kecskemeti/MRIRecondor/mrirecondor/recon24_102914, /home/kecskemeti/MRIRecondor/mrirecondor/I001.dcm, /home/kecskemeti/VIPR_IR_256_100_1000.grad
+transfer_output_files = DatFileFolder
+Arguments=recon24_102914 P37888.7 DatFileFolder
+Queue
+
